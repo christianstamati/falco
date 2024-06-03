@@ -1,26 +1,12 @@
 {
-  "version": "5",
+  "version": "7",
   "dialect": "sqlite",
   "entries": [
     {
       "idx": 0,
-      "version": "5",
-      "when": 1713717649888,
-      "tag": "0000_talented_venom",
-      "breakpoints": true
-    },
-    {
-      "idx": 1,
-      "version": "5",
-      "when": 1713718374775,
-      "tag": "0001_faithful_ben_grimm",
-      "breakpoints": true
-    },
-    {
-      "idx": 2,
-      "version": "5",
-      "when": 1713719464973,
-      "tag": "0002_rare_trauma",
+      "version": "6",
+      "when": 1717451360131,
+      "tag": "0000_optimal_vision",
       "breakpoints": true
     }
   ]

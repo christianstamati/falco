@@ -24,8 +24,20 @@ CREATE TABLE `account` (
 	FOREIGN KEY (`userId`) REFERENCES `user`(`id`) ON UPDATE no action ON DELETE cascade
 );
 --> statement-breakpoint
+CREATE TABLE `authenticator` (
+	`credentialID` text NOT NULL,
+	`userId` text NOT NULL,
+	`providerAccountId` text NOT NULL,
+	`credentialPublicKey` text NOT NULL,
+	`counter` integer NOT NULL,
+	`credentialDeviceType` text NOT NULL,
+	`credentialBackedUp` integer NOT NULL,
+	`transports` text,
+	PRIMARY KEY(`credentialID`, `userId`),
+	FOREIGN KEY (`userId`) REFERENCES `user`(`id`) ON UPDATE no action ON DELETE cascade
+);
+--> statement-breakpoint
 CREATE TABLE `session` (
-	`id` text PRIMARY KEY NOT NULL,
 	`sessionToken` text PRIMARY KEY NOT NULL,
 	`userId` text NOT NULL,
 	`expires` integer NOT NULL,
@@ -46,3 +58,5 @@ CREATE TABLE `verificationToken` (
 	`expires` integer NOT NULL,
 	PRIMARY KEY(`identifier`, `token`)
 );
+--> statement-breakpoint
+CREATE UNIQUE INDEX `authenticator_credentialID_unique` ON `authenticator` (`credentialID`);
